@@ -12,6 +12,7 @@ import {
   Database,
   Sparkles,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const DirectoryLanding = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,9 +30,9 @@ const DirectoryLanding = () => {
               </span>
             </div>
             <div className="hidden md:flex space-x-8 text-gray-600">
-              <a href="#" className="hover:text-emerald-600 transition-colors">
+              <Link to={'/companies'} className="hover:text-emerald-600 transition-colors">
                 Companies
-              </a>
+              </Link>
               <a href="#" className="hover:text-emerald-600 transition-colors">
                 Market Data
               </a>
