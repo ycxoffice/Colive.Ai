@@ -312,8 +312,8 @@ function CompanyList() {
                       <div>
                         <p className="text-xs text-gray-400">Valuation</p>
                         <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-                          {company["Company Valuation"]
-                            ? `${company["Company Valuation"]}`
+                          {company["Valuation"]
+                            ? `${company["Valuation"]}`
                             : "N/A"}
                         </p>
                       </div>
@@ -326,13 +326,13 @@ function CompanyList() {
                       <div>
                         <p className="text-xs text-gray-400">Website</p>
                         <a
-                          href={company["Website URL"]}
+                          href={company["Website"]}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          {company["Website URL"]?.replace(
+                          {company["Website"]?.replace(
                             /^https?:\/\/(www\.)?/,
                             ""
                           ) || "N/A"}
