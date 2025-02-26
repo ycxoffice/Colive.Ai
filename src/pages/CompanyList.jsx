@@ -312,8 +312,8 @@ function CompanyList() {
                       <div>
                         <p className="text-xs text-gray-400">Valuation</p>
                         <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-                          {company["Valuation"]
-                            ? `${company["Valuation"]}`
+                          {company["Company Valuation"]
+                            ? `${company["Company Valuation"]}`
                             : "N/A"}
                         </p>
                       </div>
