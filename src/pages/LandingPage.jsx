@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Building,
   Search,
@@ -16,6 +17,7 @@ import { Link } from "react-router-dom";
 
 const DirectoryLanding = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50">
@@ -30,18 +32,12 @@ const DirectoryLanding = () => {
               </span>
             </div>
             <div className="hidden md:flex space-x-8 text-gray-600">
-              <Link to={'/companies'} className="hover:text-emerald-600 transition-colors">
+              <Link
+                to={"/companies"}
+                className="hover:text-emerald-600 transition-colors"
+              >
                 Companies
               </Link>
-              <a href="#" className="hover:text-emerald-600 transition-colors">
-                Market Data
-              </a>
-              <a href="#" className="hover:text-emerald-600 transition-colors">
-                Insights
-              </a>
-              <a href="#" className="hover:text-emerald-600 transition-colors">
-                Reports
-              </a>
             </div>
           </div>
         </div>
@@ -58,25 +54,15 @@ const DirectoryLanding = () => {
             </span>
           </h1>
 
-          {/* Advanced Search */}
           <div className="max-w-4xl mx-auto mt-8">
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search companies, technologies, or markets..."
-                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-                <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center">
-                  <Filter className="h-5 w-5 mr-2" />
-                  Advanced Filters
-                </button>
-              </div>
+            <div className="bg-white p-6 rounded-2xl shadow-lg flex justify-center">
+              <button
+                onClick={() => navigate("/companies")}
+                className="bg-emerald-600 text-white px-6 py-3 rounded-xl hover:bg-emerald-700 transition-all flex items-center shadow-md hover:shadow-lg transform hover:scale-105"
+              >
+                <Briefcase className="h-6 w-6 mr-2" />
+                Access Company Data
+              </button>
             </div>
           </div>
         </div>

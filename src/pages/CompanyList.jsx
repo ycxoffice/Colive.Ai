@@ -1,3 +1,4 @@
+//colive company List
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -31,7 +32,7 @@ function CompanyList() {
       try {
         // Google Sheets API endpoint using sheet ID and tab ID
         const sheetId = "1WMdcbZzOkGdgcinUut4lbZ7GVmQk_wQRlzrFlFy-Sy0";
-        const tabId = "869590810";  
+        const tabId = "869590810";
         const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${tabId}`;
 
         const response = await fetch(url);
@@ -89,7 +90,6 @@ function CompanyList() {
     return matchesSearch && matchesExchange && matchesSector;
   });
 
-  
   if (loading)
     return (
       <div className="flex justify-center items-center h-screen  bg-white/80">
@@ -113,68 +113,62 @@ function CompanyList() {
   return (
     <div className="min-h-screen bg-white/80 text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/80 via-white/80 to-purple/400">
       {/* Navigation */}
-         <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-           <div className="container mx-auto px-6 py-4">
-             <div className="flex items-center justify-between">
-               <div className="flex items-center space-x-2">
-                 <Building className="h-8 w-8 text-emerald-600" />
-                 <span className="text-2xl font-bold text-emerald-600">
-                   CoLive.ai
-                 </span>
-               </div>
-               <div className="hidden md:flex space-x-8 text-gray-600">
-                 <Link to={'/companies'} className="hover:text-emerald-600 transition-colors">
-                   Companies
-                 </Link>
-                 <a href="#" className="hover:text-emerald-600 transition-colors">
-                   Market Data
-                 </a>
-                 <a href="#" className="hover:text-emerald-600 transition-colors">
-                   Insights
-                 </a>
-                 <a href="#" className="hover:text-emerald-600 transition-colors">
-                   Reports
-                 </a>
-               </div>
-             </div>
-           </div>
-         </nav>
-   
-         {/* Hero Search Section */}
-         <div className="pt-32 pb-16">
-           <div className="container mx-auto px-6">
-             <h1 className="text-4xl md:text-6xl font-bold text-center mb-6">
-               Discover the Future of
-               <br />
-               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-blue-600">
-                 PropTech & Co-Living
-               </span>
-             </h1>
-   
-             {/* Advanced Search */}
-             <div className="max-w-4xl mx-auto mt-8">
-               <div className="bg-white p-6 rounded-2xl shadow-lg">
-                 <div className="flex flex-col md:flex-row gap-4">
-                   <div className="flex-1 relative">
-                     <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                     <input
-                       type="text"
-                       placeholder="Search companies, technologies, or markets..."
-                       className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
-                       value={searchTerm}
-                       onChange={(e) => setSearchTerm(e.target.value)}
-                     />
-                   </div>
-                   <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center">
-                     <Filter className="h-5 w-5 mr-2" />
-                     Advanced Filters
-                   </button>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-   
+      <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Building className="h-8 w-8 text-emerald-600" />
+              <span className="text-2xl font-bold text-emerald-600">
+                CoLive.ai
+              </span>
+            </div>
+            <div className="hidden md:flex space-x-8 text-gray-600">
+              <Link
+                to={"/"}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                Home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Search Section */}
+      <div className="pt-32 pb-16">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-center mb-6">
+            Discover the Future of
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-blue-600">
+              PropTech & Co-Living
+            </span>
+          </h1>
+
+          {/* Advanced Search */}
+          <div className="max-w-4xl mx-auto mt-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search companies, technologies, or markets..."
+                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </div>
+                <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center">
+                  <Filter className="h-5 w-5 mr-2" />
+                  Advanced Filters
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Company Cards */}
       <div className="container mx-auto px-4 py-8 relative">
         <div className="flex items-center justify-between mb-8">
